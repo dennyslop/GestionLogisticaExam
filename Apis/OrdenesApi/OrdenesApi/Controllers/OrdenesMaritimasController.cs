@@ -42,10 +42,10 @@ namespace OrdenesApi.Controllers
             if (ordenes == null)
                 return NoContent();
 
-            if (ordenes.NumeroFlota.Length < 6 || ordenes.NumeroFlota.Length > 6)
+            if (ordenes.NumeroFlota.Length < 7 || ordenes.NumeroFlota.Length > 7)
                 return NoContent();
 
-            string pattern = @"([A-Z]{3})+([0-9]{3})+";
+            string pattern = @"([A-Z]{3})+([0-9]{4})+([A-Z]{1})+";
             Match m = Regex.Match(ordenes.NumeroFlota, pattern, RegexOptions.IgnoreCase);
             if (!m.Success)
                 return NoContent();
